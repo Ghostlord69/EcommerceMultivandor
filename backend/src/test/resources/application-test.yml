@@ -1,0 +1,31 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:multivendor;MODE=MySQL;DB_CLOSE_DELAY=-1;DATABASE_TO_LOWER=TRUE
+    username: sa
+    password:
+    driver-class-name: org.h2.Driver
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        dialect: org.hibernate.dialect.H2Dialect
+  mail:
+    host: localhost
+    port: 1025
+
+app:
+  jwt:
+    secret: test-secret-key-must-be-long-enough-for-hs256-signing-algo!!
+    expiration-ms: 3600000
+  cors:
+    allowed-origins: http://localhost:5173
+  payment:
+    razorpay:
+      key-id: rzp_test_placeholder
+      key-secret: change-me
+    stripe:
+      api-key: sk_test_placeholder
+      webhook-secret: whsec_placeholder
+  seed:
+    enabled: true
